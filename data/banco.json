@@ -1,13 +1,20 @@
 [
   {
+    "id": 1,
     "nome": "Mouse Gamer",
     "preco": 120.5,
     "quantidade": 10
   },
-
   {
+    "id": 2,
     "nome": "Cadeira Gamer",
     "preco": 500,
     "quantidade": 100
+  },
+  {
+    "id": 3,
+    "nome": "Teclado Gamer",
+    "preco": 120.5,
+    "quantidade": 45
   }
 ]

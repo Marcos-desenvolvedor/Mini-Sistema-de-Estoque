@@ -46,3 +46,15 @@ export function lerQuantidade(valor) {
     return quantidadeProduto;
   }
 }
+
+export function lerID(valor) {
+  while (true) {
+    const idProduto = prompt(valor);
+
+    if (idProduto === "" || isNaN(idProduto)) {
+      console.log("ID INVÁLIDO");
+      continue;
+    }
+    return idProduto;
+  }
+}

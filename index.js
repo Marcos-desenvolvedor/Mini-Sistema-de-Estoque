@@ -1,18 +1,40 @@
-import { CadastraNovoProduto } from "./services/novoProduto.js";
-import { lerNome, lerPreco, lerQuantidade } from "./prompts/lerPrompts.js";
+import { mostrarProdutos } from "./prompts/fluxoMostrarProdutos.js";
+import { fluxoCadastro } from "./prompts/fluxoCadastraProduto.js";
+import { deletarProduto } from "./prompts/fluxoDeletarProduto.js";
+import PromptSync from "prompt-sync";
+const prompt = PromptSync();
 
-function fluxo() {
-  const NomeProduto = lerNome("QUAL NOME DO PRODUTO: ");
-  const PrecoProduto = Number(lerPreco("PRECO DO PRODUTO: "));
-  const QuantidadeProduto = Number(lerQuantidade("QUANTIDADE DE PRODUTO: "));
+function menu() {
+  while (true) {
+    console.log(`---SISTEMA DE ESTOQUE---
+              
+  1 - CADASTRAR PRODUTO
+  2 - LISTAR PRODUTOS 
+  3 - DELETAR PRODUTO
+  4 - SAIR`);
 
-  const novoProduto = {
-    nome: NomeProduto,
-    preco: PrecoProduto,
-    quantidade: QuantidadeProduto,
-  };
+    const opcao = prompt("OPÇÃO: ");
 
-  CadastraNovoProduto(novoProduto);
+    switch (opcao) {
+      case "1":
+        fluxoCadastro();
+        break;
+
+      case "2":
+        mostrarProdutos();
+        break;
+
+      case "3":
+        deletarProduto();
+        break;
+      case "4":
+        console.log("SAINDO");
+        return;
+      default:
+        console.log("OPÇÃO INVÁLIDA");
+        break;
+    }
+  }
 }
 
-fluxo();
+menu();
