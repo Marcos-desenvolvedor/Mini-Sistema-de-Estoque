@@ -1,6 +1,7 @@
 import { mostrarProdutos } from "./prompts/fluxoMostrarProdutos.js";
 import { fluxoCadastro } from "./prompts/fluxoCadastraProduto.js";
 import { deletarProduto } from "./prompts/fluxoDeletarProduto.js";
+import { fluxoEditar } from "./prompts/fluxoEditorProduto.js";
 import PromptSync from "prompt-sync";
 const prompt = PromptSync();
 
@@ -11,7 +12,8 @@ function menu() {
   1 - CADASTRAR PRODUTO
   2 - LISTAR PRODUTOS 
   3 - DELETAR PRODUTO
-  4 - SAIR`);
+  4 - ATUALIZAR PRODUTO
+  5 - SAIR`);
 
     const opcao = prompt("OPÇÃO: ");
 
@@ -28,8 +30,13 @@ function menu() {
         deletarProduto();
         break;
       case "4":
+        fluxoEditar();
+        break;
+
+      case "5":
         console.log("SAINDO");
         return;
+
       default:
         console.log("OPÇÃO INVÁLIDA");
         break;
